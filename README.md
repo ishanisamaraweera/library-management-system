@@ -1,16 +1,89 @@
-# library-management-system
-Spring Boot Library Management System with JPA, Lombok, and REST APIs
+# Library Management System
 
-This is a Spring Boot project for a simple Library Management System. 
-It demonstrates the use of Spring Web, Spring Data JPA, Lombok, and Java Streams.
+A simple Spring Boot Library Management System demonstrating JPA, Lombok, Java Streams, and REST APIs.
 
-Features:
-- Manage Libraries, Aisles, and Books.
-- One-to-Many relationship: Library -> Aisles
-- Many-to-Many relationship: Aisles <-> Books
-- REST APIs for CRUD operations
-- Find libraries by name using named query
-- Get aisles by library
-- Get books by aisle
-- Save and update library information with nested aisles and books
+## Project Setup
+
+**Group:** `com.ctos.dummy`  
+**Artifact:** `library`  
+**Version:** `1.0.0`  
+
+**Dependencies:**  
+- Spring Web  
+- Spring Data JPA  
+- Lombok  
+- MySQL Connector  
+
+**Java Version:** 21
+
+---
+
+## Entities
+
+### Library
+- `libraryId` (Integer, auto-generated)  
+- `libraryName` (String)  
+- One Library has many Aisles  
+
+### Aisle
+- `aisleId` (Integer, auto-generated)  
+- `aisleName` (String)  
+- Many Aisles belong to one Library  
+- Many-to-Many with Books  
+
+### Book
+- `bookId` (Integer, auto-generated)  
+- `bookName` (String)  
+- Many-to-Many with Aisles  
+
+---
+
+## Features
+
+1. Find libraries by name (using named query)  
+2. Get all aisles by library  
+3. Get all books by aisle  
+4. Save new library with aisles  
+5. Update library information  
+6. Get all books in a specific aisle and library  
+7. REST APIs for CRUD operations  
+
+---
+
+## API Endpoints
+
+| Method | URL | Description |
+|--------|-----|-------------|
+| GET | `/libraries` | Get all libraries |
+| GET | `/libraries/{id}/aisles` | Get all aisles in a library |
+| GET | `/libraries/{libraryName}/aisles/{aisleName}/books` | Get all books in an aisle |
+| POST | `/libraries` | Save a new library with aisles |
+| PUT | `/libraries/{id}` | Update existing library information |
+
+---
+
+## Sample JSON
+
+**Save Library Example**
+
+```json
+{
+  "libraryName": "Central Library",
+  "aisles": [
+    {
+      "aisleName": "Natural History",
+      "books": [
+        {"bookName": "The Evolution of Species"},
+        {"bookName": "History of Dinosaurs"}
+      ]
+    },
+    {
+      "aisleName": "Science & Tech",
+      "books": [
+        {"bookName": "Physics Fundamentals"},
+        {"bookName": "AI Revolution"}
+      ]
+    }
+  ]
+}
 
