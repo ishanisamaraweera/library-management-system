@@ -1,6 +1,6 @@
 package com.ctos.dummy.library.controller;
 
-import com.ctos.dummy.library.Dto.AisleDto;
+import com.ctos.dummy.library.dto.AisleDto;
 import com.ctos.dummy.library.service.LibraryService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

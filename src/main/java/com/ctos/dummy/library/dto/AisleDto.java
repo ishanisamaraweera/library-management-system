@@ -1,4 +1,4 @@
-package com.ctos.dummy.library.Dto;
+package com.ctos.dummy.library.dto;
 
 /**
  * @author ishani.s
